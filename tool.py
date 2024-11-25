@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import math
 import os
 
-def save_image(gen_imgs, epoch, iter):
+def save_image(gen_imgs, epoch, iter, show=False):
     """將生成的圖像保存成一張圖"""
     gen_imgs = gen_imgs.cpu().detach().numpy()
     gen_imgs = (gen_imgs + 1) / 2  # 假設生成圖像範圍在 [-1, 1]，先歸一化到 [0, 1]
@@ -32,8 +32,10 @@ def save_image(gen_imgs, epoch, iter):
     if not os.path.exists('./val_imgs'):
         os.makedirs('./val_imgs')
     plt.savefig(f'./val_imgs/Epoch_{epoch}_iter_{iter}.png')
-    plt.show()
-    plt.close()
+    if show:
+        plt.show()
+    else:
+        plt.close()
 
 def rmse(predictions, targets, mask):
     return np.sqrt((((predictions - targets) * mask) ** 2).mean()), \
