@@ -2,7 +2,7 @@ from tqdm import tqdm
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torchvision.utils import save_image
+from tool import save_image
 from model import Discriminator, Gen_with_Diffusion, DiffusionModel, BoundaryAwareRefineNet, get_generator
 from loss import AdversarialLoss, BoundaryLoss
 from Dataset import StainDataset, image_transform, mask_transform
@@ -127,7 +127,7 @@ if __name__ == "__main__":
             optimizer_D.step()
 
             # 更新進度條資訊
-            progress_bar.set_infos({
+            progress_bar.set_postfix({
                 'Loss_D': round(d_loss.item(), 4),
                 'Loss_G': round(g_loss.item(), 4),
                 'Epoch': epoch + 1,
