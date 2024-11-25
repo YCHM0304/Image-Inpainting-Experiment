@@ -1,0 +1,19 @@
+{
+  "training": {
+    "epochs": 13,
+    "batch_size": 8,
+    "sample_interval": 1500
+  },
+  "model": {
+    "g_type": "unet-64",
+    "latent_dim": 100
+  },
+  "loss_weights": {
+    "lambda_l1": 10,
+    "lambda_bd": 0.1
+  },
+  "optimizer": {
+    "lr_g": 2e-4,
+    "lr_d": 2e-4
+  }
+}
