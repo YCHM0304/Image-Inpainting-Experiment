@@ -4,3 +4,5 @@ val_imgs/
 ./generator.pth
 ./discriminator.pth
 __pycache__/
+discriminator.pth
+generator.pth
