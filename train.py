@@ -137,12 +137,10 @@ if __name__ == "__main__":
             if i % sample_interval == 0:
                 print(f"Epoch [{epoch + 1}/{epochs}] Batch {i}/{len(train_loader)} \ Loss D: {d_loss.item():.4f}, Loss G: {g_loss.item():.4f}")
                 save_image(gen_imgs, epoch+1, i)
-            break
 
         # 每個 epoch 儲存最後一批次的生成圖像
         if last_gen_imgs is not None:
             save_image(last_gen_imgs, epoch+1, "latest")
-        break
 
     torch.save(generator.state_dict(), 'generator.pth')
     torch.save(discriminator.state_dict(), 'discriminator.pth')
