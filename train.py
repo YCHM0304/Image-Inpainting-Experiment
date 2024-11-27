@@ -141,3 +141,6 @@ if __name__ == "__main__":
         # 每個 epoch 儲存最後一批次的生成圖像
         if last_gen_imgs is not None:
             save_image(last_gen_imgs, epoch+1, "latest")
+
+    torch.save(generator.state_dict(), 'generator.pth')
+    torch.save(discriminator.state_dict(), 'discriminator.pth')
