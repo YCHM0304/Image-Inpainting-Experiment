@@ -1,3 +1,4 @@
+import os
 from tqdm import tqdm
 import torch
 import torch.nn as nn
@@ -62,6 +63,15 @@ discriminator = Discriminator().to(device)
 
 # 整合為新的生成器模型
 generator = Gen_with_Diffusion(base_generator, diffusion_model, refine_net).to(device)
+
+# 檢查是否有pretrained model
+if config['training']['pretrained']:
+    if os.path.exists('./Pretrained/generator.pth') and os.path.exists('./Pretrained/discriminator.pth'):
+        generator.load_state_dict(torch.load('./Pretrained/generator.pth'))
+        discriminator.load_state_dict(torch.load('./Pretrained/discriminator.pth'))
+        print("Pretrained model loaded.")
+    else:
+        print("Pretrained model not found. Start training from scratch.")
 
 # 將模型調成訓練模式
 generator.train()

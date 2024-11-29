@@ -2,7 +2,8 @@
   "training": {
     "epochs": 20,
     "batch_size": 8,
-    "sample_interval": 1500
+    "sample_interval": 1500,
+    "pretrained": true
   },
   "model": {
     "g_type": "unet-64",
