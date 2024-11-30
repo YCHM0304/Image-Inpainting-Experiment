@@ -476,8 +476,8 @@ class Discriminator(nn.Module):
       )
 
     self.model = nn.Sequential(
-        # 輸入圖像尺寸為3 x 64 X 64
-      nn.Conv2d(3, 64, 5, 2, 2),
+        # 輸入圖像尺寸為4 x 64 X 64
+      nn.Conv2d(4, 64, 5, 2, 2),
       nn.LeakyReLU(0.2, inplace=True),
 
       conv_bn_lrelu(64, 128),
