@@ -12,7 +12,7 @@ if [ ! -d "./Pretrained" ]; then
 fi
 
 # 下載數據
-gdown --id 16DJS7TPb5tQ4jiECrCEc84Gj2oOP-MCe --output "./Pretrained/Pretrained.zip"
+gdown --id 12_1ZO4Ql-yIhDprUzWqO4kBj24vykNnb --output "./Pretrained/Pretrained.zip"
 
 # 檢查下載是否成功
 if [ $? -eq 0 ] && [ -f "./Pretrained/Pretrained.zip" ]; then
@@ -21,9 +21,6 @@ if [ $? -eq 0 ] && [ -f "./Pretrained/Pretrained.zip" ]; then
 
     if [ $? -eq 0 ]; then
         echo "解壓縮成功"
-        mv "./Pretrained/30/generator.pth" "./Pretrained/generator.pth"
-        mv "./Pretrained/30/discriminator.pth" "./Pretrained/discriminator.pth"
-        rm -r "./Pretrained/30"
         rm "./Pretrained/Pretrained.zip"
         echo "清理完成"
     else

@@ -23,7 +23,7 @@ if ! command -v gdown &> /dev/null; then
 fi
 
 # 下載數據
-gdown --id 1yxo_HLz3Nc-SxQeY61cMtbsVHWzJ8S20 --output "./Data.zip"
+gdown --id 1aGNqHgyDV50KFwdlfBj4tws8HAdABw83 --output "./Data.zip"
 
 # 檢查下載是否成功
 if [ $? -eq 0 ] && [ -f "./Data.zip" ]; then

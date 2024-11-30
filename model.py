@@ -489,7 +489,7 @@ class Discriminator(nn.Module):
 
   def forward(self, img, mask):
     # 只在 mask=1 的區域進行判別
-    masked_img = img * mask
-    y = self.model(masked_img)
+    input = torch.cat((img, mask), dim=1)
+    y = self.model(input)
     y = y.view(-1, 1)
     return y
