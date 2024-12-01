@@ -98,6 +98,7 @@ if __name__ == '__main__':
     generated_img_pil = tensor_to_image(generated_img)
     real_img_pil = tensor_to_image(real_img_tensor)
     generated_img_pil.save(os.path.join('./test_output', 'output_generated.png'))
+    tensor_to_image(stained_img_tensor).save(os.path.join('./test_output', 'output_stained.png'))
 
     grid = create_comparison(stained_img_tensor, real_img_tensor, generated_img)
 
