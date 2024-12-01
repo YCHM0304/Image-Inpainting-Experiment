@@ -1,5 +1,7 @@
 ./Data.zip
 Data/
+test/
+test_output/
 val_imgs/
 ./generator.pth
 ./discriminator.pth

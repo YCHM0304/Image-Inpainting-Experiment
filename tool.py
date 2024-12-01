@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import os
+import torch
+from torchvision.utils import make_grid
 
 def save_image(gen_imgs, epoch, iter, show=False):
     """將生成的圖像保存成一張圖"""
@@ -41,3 +43,16 @@ def rmse(predictions, targets, mask):
     return np.sqrt((((predictions - targets) * mask) ** 2).mean()), \
     np.sqrt((((predictions - targets) * (1 - mask)) ** 2).mean()), \
     np.sqrt(((predictions - targets) ** 2).mean())
+
+def create_comparison(stained_img_tensor, real_img_tensor, generated_img_tensor):
+    # Denormalize images
+    def denorm(x):
+        return (x * 0.5 + 0.5).clamp(0, 1)
+
+    # Prepare images
+    images = [denorm(img) for img in [stained_img_tensor, real_img_tensor, generated_img_tensor]]
+
+    # Create grid
+    grid = make_grid(torch.cat(images), nrow=3)
+
+    return grid
